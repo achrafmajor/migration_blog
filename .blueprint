@@ -1,0 +1,24 @@
+created:
+    - app/Http/Controllers/PhoneController.php
+    - database/factories/PhoneFactory.php
+    - database/migrations/2021_09_21_232536_create_phones_table.php
+    - app/Models/Phone.php
+    - tests/Feature/Http/Controllers/PhoneControllerTest.php
+    - app/Http/Requests/PhoneStoreRequest.php
+    - app/Http/Requests/PhoneUpdateRequest.php
+    - resources/views/admin/pages/phone/index.blade.php
+    - resources/views/admin/pages/phone/create.blade.php
+    - resources/views/admin/pages/phone/show.blade.php
+    - resources/views/admin/pages/phone/edit.blade.php
+updated:
+    - routes/web.php
+models:
+    User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
+    Post: { title: 'string:400', slug: 'string:400 unique', desciption: longtext, content: longtext, statut: integer, seo_titel: 'string:400', seo_description: 'string:400', seo_keyword: 'string:400' }
+    Page: { title: 'string:400', slug: 'string:400', content: longtext, seo_titel: 'string:400', seo_description: 'string:400', seo_keyword: 'string:400' }
+    Service: { slug: 'string:400 unique', link: 'string:400', title: 'string:400', desciption: longtext, content: longtext, position: integer, statut: integer }
+    Faq: { ordre: integer, title: 'string:400', content: longtext, statut: integer }
+    Newsletter: { email: 'string:400' }
+    Feedback: { content: longtext, name: 'string:400', job: 'string:400' }
+    Partner: { name: 'string:400', link: 'string:400' }
+    Phone: { phone: 'string:400', contry_code: 'string:400 unique', name: 'string:400 unique' }

@@ -1,0 +1,216 @@
+models:
+  # Post:
+  #   title: string:400
+  #   slug: string:400 unique
+  #   desciption: longtext
+  #   content: longtext
+  #   statut: integer
+  #   seo_titel: string:400
+  #   seo_description: string:400
+  #   seo_keyword: string:400
+  # Page:
+  #   title: string:400
+  #   slug: string:400
+  #   desciption: string:400
+  #   content: longtext
+  #   seo_titel: string:400
+  #   seo_description: string:400
+  #   seo_keyword: string:400
+  #   statut: integer
+
+  # Service:
+  #   slug: string:400 unique
+  #   link: string:400
+  #   title: string:400
+  #   desciption: longtext
+  #   content: longtext
+  #   position: integer
+  #   statut: integer
+  # Faq:
+  #   ordre: integer
+  #   title: string:400
+  #   content: longtext
+  #   statut: integer
+  # Newsletter:
+  #   email: string:400
+  # Feedback:
+  #   content: longtext
+  #   name: string:400
+  #   job: string:400
+  # Partner:
+  #   name: string:400
+  #   link: string:400
+  Phone:
+    phone: string:400
+    contry_code: string:400 unique
+    name: string:400 unique
+
+controllers:
+  Phone:
+    index:
+      query: all:phones
+      render: admin.pages.phone.index with:phones
+    create:
+      render: admin.pages.phone.create
+    store:
+      validate: title, content, slug:unique , seo_titel ,seo_description ,seo_keyword
+      save: phone
+      redirect: admin.pages.phone.index
+    show:
+      render: admin.pages.phone.show with:phone
+    edit:
+      render: admin.pages.phone.edit with:phone
+    update:
+      validate: title, content, slug:unique , seo_titel ,seo_description ,seo_keyword
+      update: phone
+      redirect: admin.pages.phone.index
+    destroy:
+      delete: phone
+      redirect: phone.index
+  # Post:
+  #   index:
+  #     query: all:posts
+  #     render: admin.pages.post.index with:posts
+  #   create:
+  #     render: admin.pages.post.create
+  #   store:
+  #     validate: title, content, slug:unique , seo_titel ,seo_description ,seo_keyword
+  #     save: post
+  #     redirect: admin.pages.post.index
+  #   show:
+  #     render: admin.pages.post.show with:post
+  #   edit:
+  #     render: admin.pages.post.edit with:post
+  #   update:
+  #     validate: title, content, slug:unique , seo_titel ,seo_description ,seo_keyword
+  #     update: post
+  #     redirect: admin.pages.post.index
+  #   destroy:
+  #     delete: post
+  #     redirect: post.index
+  # Page:
+  #   index:
+  #     query: all:page
+  #     render: admin.pages.page.index with:pages
+  #   create:
+  #     render: admin.pages.page.create
+  #   store:
+  #     validate: title, content, slug:unique , seo_titel ,seo_description ,seo_keyword
+  #     save: page
+  #     redirect: admin.pages.page.index
+  #   show:
+  #     render: page.show with:page
+  #   edit:
+  #     render: page.edit with:page
+  #   update:
+  #     validate: title, content, slug:unique , seo_titel ,seo_description ,seo_keyword
+  #     update: page
+  #     redirect: page.index
+  #   destroy:
+  #     delete: page
+  #     redirect: page.index
+  # Service:
+  #   index:
+  #     query: all:service
+  #     render: admin.pages.service.index with:services
+  #   create:
+  #     render: admin.pages.service.create
+  #   store:
+  #     validate: title, content
+  #     save: service
+  #     redirect: admin.pages.service.index
+  #   show:
+  #     render: admin.pages.service.show with:service
+  #   edit:
+  #     render: admin.pages.service.edit with:service
+  #   update:
+  #     validate: title, content
+  #     update: service
+  #     redirect: admin.pages.service.index
+  #   destroy:
+  #     delete: service
+  #     redirect: admin.pages.service.index
+  # Faq:
+  #   index:
+  #     query: all:faq
+  #     render: admin.pages.faq.index with:faqs
+  #   create:
+  #     render: admin.pages.faq.create
+  #   store:
+  #     validate: faq
+  #     save: faq
+  #     redirect: admin.pages.faq.index
+  #   show:
+  #     render: admin.pages.faq.show with:faq
+  #   edit:
+  #     render: admin.pages.faq.edit with:faq
+  #   update:
+  #     validate: faq
+  #     update: faq
+  #     redirect: admin.pages.faq.index
+  #   destroy:
+  #     delete: faq
+  #     redirect: admin.pages.faq.index
+  # Newsletter:
+  #   index:
+  #     query: all:newsletter
+  #     render: admin.pages.newsletter.index with:newsletters
+  #   create:
+  #     render: admin.pages.newsletter.create
+  #   store:
+  #     validate: newsletter
+  #     save: newsletter
+  #     redirect: admin.pages.newsletter.index
+  #   show:
+  #     render: admin.pages.newsletter.show with:newsletter
+  #   edit:
+  #     render: admin.pages.newsletter.edit with:newsletter
+  #   update:
+  #     validate: newsletter
+  #     update: newsletter
+  #     redirect: admin.pages.newsletter.index
+  #   destroy:
+  #     delete: newsletter
+  #     redirect: admin.pages.newsletter.index
+  # Feedback:
+  #   index:
+  #     query: all:feedback
+  #     render: admin.pages.feedback.index with:feedbacks
+  #   create:
+  #     render: admin.pages.feedback.create
+  #   store:
+  #     validate: feedback
+  #     save: feedback
+  #     redirect: admin.pages.feedback.index
+  #   show:
+  #     render: admin.pages.feedback.show with:feedback
+  #   edit:
+  #     render: admin.pages.feedback.edit with:feedback
+  #   update:
+  #     validate: feedback
+  #     update: feedback
+  #     redirect: admin.pages.feedback.index
+  #   destroy:
+  #     delete: feedback
+  #     redirect: admin.pages.feedback.index
+  # Partner:
+  # index:
+  #   query: all:partner
+  #   render: admin.pages.partner.index with:partners
+  # create:
+  #   render: admin.pages.partner.create
+  # store:
+  #   validate: partner
+  #   save: partner
+  #   redirect: admin.pages.partner.index
+  # show:
+  #   render: admin.pages.partner.show with:partner
+  # edit:
+  #   render: admin.pages.partner.edit with:partner
+  # update:
+  #   validate: partner
+  #   update: partner
+  #   redirect: admin.pages.partner.index
+  # destroy:
+  #   delete: partner
+  #   redirect: admin.pages.partner.index
